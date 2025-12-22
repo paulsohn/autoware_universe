@@ -108,6 +108,15 @@ repos:
         files: .svg$
         additional_dependencies: [prettier@2.7.1, "@prettier/plugin-xml@2.2.0"]
 
+  - repo: local
+    hooks:
+      - id: check-ros-package-depend
+        name: Check Forbidden ROS2 Dependencies
+        description: Check for forbidden dependencies in ROS2 package.xml files.
+        entry: python3 scripts/check_forbidden_depend.py
+        language: python
+        files: package\.xml$
+
   - repo: https://github.com/AleksaC/hadolint-py
     rev: v2.14.0
     hooks:
